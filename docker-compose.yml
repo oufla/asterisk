@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  asterisk:
+    image: mycustom/asterisk:22.4.1
+    container_name: asterisk-proxy
+    volumes:
+      - ./asterisk:/etc/asterisk
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+      - "10000-10100:10000-10100/udp"
+    restart: unless-stopped
+
